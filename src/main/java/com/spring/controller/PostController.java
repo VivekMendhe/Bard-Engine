@@ -19,6 +19,7 @@ public class PostController {
 	@ModelAttribute
 	public void modelData(Model model) {
 		model.addAttribute("title", "Make Your Post!");
+		model.addAttribute("cardtitle", "Your Post!");
 	}
 
 	@RequestMapping("/post")
@@ -26,11 +27,18 @@ public class PostController {
 		return "post";
 	}
 
+	@RequestMapping("/demo")
+	public String demo() {
+		return "demo";
+	}
+
 	@RequestMapping(path = "/handlePostForm", method = RequestMethod.POST)
-	public String handlePostForm(@ModelAttribute("card") Post post, Model model) {
+	public String handlePostForm(@ModelAttribute("post") Post post, Model model) {
 		int createPost = this.postService.createPost(post);
 		System.out.println(createPost);
 		model.addAttribute("id", "Your Post Id: " + createPost);
+		model.addAttribute("postTitle",  post.getTitle());
+		model.addAttribute("postContent", post.getContent());
 		return "postindex";
 	}
 }

@@ -23,24 +23,34 @@
 		<h1 class="text-center">${title}</h1>
 		<div class="row">
 			<div class="col-md-6 offset-sm-3">
-			
-				<form action="handlePostForm" method="post">
-				
+
+				<form action="handlePostForm" method="post"
+					enctype="multipart/form-data">
+
 					<div class="mb-3">
-						<div class="card" style="width: 18rem;">
-							<img src="..." class="card-img-top" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
-								<p class="card-text">Some quick example text to build on the
-									card title and make up the bulk of the card's content.</p>
-								<a href="#" class="btn btn-primary">Go somewhere</a>
-							</div>
-						</div>
+						<label for="formFile" class="form-label">Upload Your file</label>
+						<input class="form-control" name="profile" type="file" 
+							id="formFile">
 					</div>
 
 
-				</form>
+					<div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">Title</label> <input
+							type="text" class="form-control" name="title" id="exampleInputEmail1"
+							aria-describedby="emailHelp">
 
+					</div>
+					<div class="mb-3">
+						<div class="form-floating">
+							<textarea class="form-control" placeholder="Leave a comment here"
+								id="floatingTextarea2" name="content" style="height: 100px"></textarea>
+							<label for="floatingTextarea2">Your Feelings..!</label>
+						</div>
+					</div>
+
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+				
 			</div>
 		</div>
 	</div>
